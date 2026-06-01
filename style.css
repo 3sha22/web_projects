@@ -1,101 +1,218 @@
-/* ===== GLOBAL STYLE ===== */
+/* ===== GOOGLE FONT ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ===== ANIMATED BACKGROUND ===== */
 body {
-  font-family: "Poppins", Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
   margin: 0;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #4facfe, #feae00);
+
+  background: linear-gradient(
+    -45deg,
+    #4facfe,
+    #00f2fe,
+    #ff9a9e,
+    #fad0c4
+  );
+  background-size: 400% 400%;
+  animation: gradientBG 12s ease infinite;
 }
 
-/* ===== MAIN CARD ===== */
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ===== GLASS CONTAINER ===== */
 .container {
+  width: 380px;
+  padding: 30px;
+
   background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  padding: 25px;
-  border-radius: 15px;
-  width: 340px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  border: 1px solid rgba(255,255,255,0.3);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,0.2);
+
+  box-shadow:
+    0 8px 32px rgba(0,0,0,0.2),
+    0 0 30px rgba(255,255,255,0.1);
+
+  transition: 0.4s ease;
+}
+
+.container:hover {
+  transform: translateY(-5px);
 }
 
 /* ===== TITLE ===== */
 h1 {
   text-align: center;
   color: white;
-  margin-bottom: 15px;
-  letter-spacing: 1px;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.25);
 }
 
-/* ===== INPUT AREA ===== */
+/* ===== INPUT SECTION ===== */
 .input-section {
   display: flex;
-  gap: 8px;
+  gap: 10px;
 }
 
 input {
   flex: 1;
-  padding: 10px;
+  padding: 14px;
   border: none;
-  border-radius: 8px;
   outline: none;
+
+  border-radius: 12px;
+
+  background: rgba(255,255,255,0.85);
+  color: #333;
+
   font-size: 14px;
+  font-weight: 500;
+
+  transition: 0.3s ease;
+}
+
+input:focus {
+  box-shadow: 0 0 0 3px rgba(79,172,254,0.4);
 }
 
 /* ===== ADD BUTTON ===== */
 button {
-  padding: 10px 12px;
+  padding: 12px 16px;
   border: none;
-  border-radius: 8px;
-  background: #00c853;
+  border-radius: 12px;
+
+  background: linear-gradient(
+    135deg,
+    #00c853,
+    #00e676
+  );
+
   color: white;
-  font-weight: bold;
+  font-weight: 600;
   cursor: pointer;
-  transition: 0.3s ease;
+
+  box-shadow: 0 5px 15px rgba(0,200,83,0.4);
+
+  transition: all 0.3s ease;
 }
 
 button:hover {
-  background: #00e676;
-  transform: scale(1.05);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,200,83,0.6);
+}
+
+button:active {
+  transform: scale(0.95);
 }
 
 /* ===== TASK LIST ===== */
 ul {
   list-style: none;
   padding: 0;
-  margin-top: 15px;
+  margin-top: 20px;
+  max-height: 300px;
+  overflow-y: auto;
 }
 
-/* ===== TASK ITEM ===== */
-li {
-  background: rgba(255, 255, 255, 0.9);
-  margin-top: 10px;
-  padding: 10px;
+/* ===== CUSTOM SCROLLBAR ===== */
+ul::-webkit-scrollbar {
+  width: 6px;
+}
+
+ul::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.4);
   border-radius: 10px;
+}
+
+/* ===== TASK CARD ===== */
+li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: 0.3s;
+
+  margin-bottom: 12px;
+  padding: 14px;
+
+  background: rgba(255,255,255,0.9);
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 5px 15px rgba(0,0,0,0.08);
+
+  transition: all 0.3s ease;
 }
 
 li:hover {
-  transform: translateX(5px);
+  transform: translateX(8px);
+  box-shadow:
+    0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* ===== COMPLETED TASK ===== */
+li.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+  background: rgba(200,255,200,0.8);
+}
+
+/* ===== TASK TEXT ===== */
+li span {
+  flex: 1;
+  cursor: pointer;
+  font-weight: 500;
 }
 
 /* ===== DELETE BUTTON ===== */
 .delete {
-  background: #ff1744;
+  background: linear-gradient(
+    135deg,
+    #ff1744,
+    #ff5252
+  );
+
   border: none;
   color: white;
-  padding: 5px 8px;
-  border-radius: 6px;
+
+  padding: 8px 10px;
+  border-radius: 8px;
+
   cursor: pointer;
-  transition: 0.3s;
+
+  transition: 0.3s ease;
 }
 
 .delete:hover {
-  background: #ff5252;
-  transform: rotate(5deg);
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 5px 15px rgba(255,23,68,0.4);
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 450px) {
+  .container {
+    width: 90%;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
 }
