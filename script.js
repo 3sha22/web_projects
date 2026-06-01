@@ -86,3 +86,4 @@ function updateStorage() {
 
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
+
