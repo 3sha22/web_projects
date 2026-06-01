@@ -1,63 +1,101 @@
+/* ===== GLOBAL STYLE ===== */
 body {
-  font-family: Arial, sans-serif;
-  background: #f2f2f2;
+  font-family: "Poppins", Arial, sans-serif;
+  margin: 0;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
 }
 
+/* ===== MAIN CARD ===== */
 .container {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  width: 300px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 25px;
+  border-radius: 15px;
+  width: 340px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.3);
 }
 
+/* ===== TITLE ===== */
 h1 {
   text-align: center;
+  color: white;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
 }
 
+/* ===== INPUT AREA ===== */
 .input-section {
   display: flex;
-  gap: 5px;
+  gap: 8px;
 }
 
 input {
   flex: 1;
-  padding: 8px;
-}
-
-button {
-  padding: 8px 10px;
-  cursor: pointer;
-  background: #28a745;
-  color: white;
+  padding: 10px;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
 }
 
+/* ===== ADD BUTTON ===== */
+button {
+  padding: 10px 12px;
+  border: none;
+  border-radius: 8px;
+  background: #00c853;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background: #00e676;
+  transform: scale(1.05);
+}
+
+/* ===== TASK LIST ===== */
 ul {
   list-style: none;
   padding: 0;
   margin-top: 15px;
 }
 
+/* ===== TASK ITEM ===== */
 li {
-  background: #eee;
-  margin-top: 8px;
-  padding: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
   display: flex;
   justify-content: space-between;
-  border-radius: 5px;
+  align-items: center;
+  transition: 0.3s;
 }
 
+li:hover {
+  transform: translateX(5px);
+}
+
+/* ===== DELETE BUTTON ===== */
 .delete {
-  background: red;
-  color: white;
+  background: #ff1744;
   border: none;
-  padding: 5px;
+  color: white;
+  padding: 5px 8px;
+  border-radius: 6px;
   cursor: pointer;
-  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.delete:hover {
+  background: #ff5252;
+  transform: rotate(5deg);
 }
